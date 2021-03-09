@@ -38,7 +38,9 @@ public class Util {
                         .setProperty("hibernate.connection.username", "root")
                         .setProperty("hibernate.connection.password", "Ravil")
                         .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")
-                        .setProperty("SHOW_SQL", "true");
+                        .setProperty("hibernate.HBM2DDL_AUTO", "create-drop")
+                        .setProperty("SHOW_SQL", "true")
+                        .addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(User.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
